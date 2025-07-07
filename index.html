@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ride Profit Optimizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Dark Mode Toggle -->
+    <div class="theme-toggle">
+        <label class="switch">
+            <input type="checkbox" id="darkModeToggle">
+            <span class="slider round"></span>
+        </label>
+        <span id="themeLabel">Light Mode</span>
+    </div>
+
+    <!-- Heading -->
+    <h1>🚗 Ride Profit Optimizer</h1>
+
+    <!-- Main Container -->
+    <div class="container">
+        <!-- Sibling A Section -->
+        <h2>👨‍🦱 Sibling A Details</h2>
+        <div class="input-group">
+            <label for="passengersA">Passengers (0–4)</label>
+            <input type="number" id="passengersA" placeholder="Enter number of passengers" value="0" min="0" max="4">
+        </div>
+        <div class="input-group">
+            <label for="distanceA">Trip Distance (km)</label>
+            <input type="number" id="distanceA" placeholder="e.g., 250" value="250">
+        </div>
+        <div class="input-group">
+            <label for="chargeA">Charge per Passenger (CAD)</label>
+            <input type="number" id="chargeA" placeholder="e.g., 25" value="25">
+        </div>
+        <div class="input-group">
+            <label for="reverseA">Reverse Ride Cost (CAD)</label>
+            <input type="number" id="reverseA" placeholder="e.g., 25" value="25">
+        </div>
+
+        <!-- Divider -->
+        <hr>
+
+        <!-- Sibling B Section -->
+        <h2>👩‍🦰 Sibling B Details</h2>
+        <div class="input-group">
+            <label for="passengersB">Passengers (0–4)</label>
+            <input type="number" id="passengersB" placeholder="Enter number of passengers" value="0" min="0" max="4">
+        </div>
+        <div class="input-group">
+            <label for="distanceB">Trip Distance (km)</label>
+            <input type="number" id="distanceB" placeholder="e.g., 140" value="140">
+        </div>
+        <div class="input-group">
+            <label for="chargeB">Charge per Passenger (CAD)</label>
+            <input type="number" id="chargeB" placeholder="e.g., 20" value="20">
+        </div>
+        <div class="input-group">
+            <label for="reverseB">Reverse Ride Cost (CAD)</label>
+            <input type="number" id="reverseB" placeholder="e.g., 20" value="20">
+        </div>
+
+        <!-- Divider -->
+        <hr>
+
+        <!-- Car Details Section -->
+        <h2>🚘 Car Details</h2>
+        <div class="input-group">
+            <label for="fuelPrice">Fuel Price per Liter (CAD)</label>
+            <input type="number" id="fuelPrice" placeholder="e.g., 1.35" value="1.35" step="0.01">
+        </div>
+        <div class="input-group">
+            <label for="mileage">Car Mileage (L/100km)</label>
+            <input type="number" id="mileage" placeholder="e.g., 6.5" value="6.5" step="0.1">
+        </div>
+
+        <!-- Calculate Button -->
+        <button onclick="calculateOptimalDriver()">🚦 Calculate Optimal Driver</button>
+
+        <!-- Result Display -->
+        <div id="result" class="result-box">
+            <h3>📊 Result</h3>
+            <p id="driverRecommendation">No calculation yet.</p>
+            <p id="combinedNet"></p>
+            <p id="netProfitA"></p>
+            <p id="netProfitB"></p>
+            <p id="reverseRide"></p>
+            <div id="breakdown" class="calculation-breakdown"></div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script src="script.js"></script>
+</body>
+</html>
