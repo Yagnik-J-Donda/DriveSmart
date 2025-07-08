@@ -1,97 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ride Profit Optimizer</title>
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DriveSmart</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-    <!-- Dark Mode Toggle -->
-    <div class="theme-toggle">
-        <label class="switch">
-            <input type="checkbox" id="darkModeToggle">
-            <span class="slider round"></span>
-        </label>
-        <span id="themeLabel">Light Mode</span>
-    </div>
-
-    <!-- Heading -->
-    <h1>🚗 Ride Profit Optimizer</h1>
-
-    <!-- Main Container -->
     <div class="container">
-        <!-- Sibling A Section -->
-        <h2>👨‍🦱 Sibling A Details</h2>
-        <div class="input-group">
-            <label for="passengersA">Passengers (0–4)</label>
-            <input type="number" id="passengersA" placeholder="Enter number of passengers" value="0" min="0" max="4">
-        </div>
-        <div class="input-group">
-            <label for="distanceA">Trip Distance (km)</label>
-            <input type="number" id="distanceA" placeholder="e.g., 250" value="250">
-        </div>
-        <div class="input-group">
-            <label for="chargeA">Charge per Passenger (CAD)</label>
-            <input type="number" id="chargeA" placeholder="e.g., 25" value="25">
-        </div>
-        <div class="input-group">
-            <label for="reverseA">Reverse Ride Cost (CAD)</label>
-            <input type="number" id="reverseA" placeholder="e.g., 25" value="25">
+        <h1>🚗 DriveSmart</h1>
+
+        <!-- Step 1: Who has shift today? -->
+        <div class="card">
+            <h3>📋 Who has shift today?</h3>
+            <label class="radio-container">
+                <input type="radio" name="shift" value="Yagnik" onchange="updateShift()" />
+                <span class="checkmark"></span> 👨‍🦱 Yagnik
+            </label>
+            <label class="radio-container">
+                <input type="radio" name="shift" value="Mayuri" onchange="updateShift()" />
+                <span class="checkmark"></span> 👩‍🦰 Mayuri
+            </label>
+            <label class="radio-container">
+                <input type="radio" name="shift" value="Both" onchange="updateShift()" />
+                <span class="checkmark"></span> 👥 Both
+            </label>
         </div>
 
-        <!-- Divider -->
-        <hr>
-
-        <!-- Sibling B Section -->
-        <h2>👩‍🦰 Sibling B Details</h2>
-        <div class="input-group">
-            <label for="passengersB">Passengers (0–4)</label>
-            <input type="number" id="passengersB" placeholder="Enter number of passengers" value="0" min="0" max="4">
-        </div>
-        <div class="input-group">
-            <label for="distanceB">Trip Distance (km)</label>
-            <input type="number" id="distanceB" placeholder="e.g., 140" value="140">
-        </div>
-        <div class="input-group">
-            <label for="chargeB">Charge per Passenger (CAD)</label>
-            <input type="number" id="chargeB" placeholder="e.g., 20" value="20">
-        </div>
-        <div class="input-group">
-            <label for="reverseB">Reverse Ride Cost (CAD)</label>
-            <input type="number" id="reverseB" placeholder="e.g., 20" value="20">
+        <!-- Step 2: Who is driving? -->
+        <div class="card" id="driverSelection" style="display: none;">
+            <h3>🚗 Who is driving?</h3>
+            <div id="driverOptions"></div>
         </div>
 
-        <!-- Divider -->
-        <hr>
-
-        <!-- Car Details Section -->
-        <h2>🚘 Car Details</h2>
-        <div class="input-group">
-            <label for="fuelPrice">Fuel Price per Liter (CAD)</label>
-            <input type="number" id="fuelPrice" placeholder="e.g., 1.35" value="1.35" step="0.01">
+        <!-- Inputs for Yagnik -->
+        <div class="card" id="inputsYagnik" style="display: none;">
+            <h4>👨‍🦱 Yagnik's Details</h4>
+            <label>👥 Passengers (One-way)</label>
+            <input type="number" id="passengersYagnik" placeholder="Enter number" />
+            <label>🏁 Trip Distance (One-way km)</label>
+            <input type="number" id="distanceYagnik" placeholder="e.g., 125" value="125" />
+            <label>💵 Charge per Passenger (CAD)</label>
+            <input type="number" id="chargeYagnik" placeholder="e.g., 25" value="25" />
+            <label>🔄 Reverse Ride Cost (CAD)</label>
+            <input type="number" id="reverseYagnik" placeholder="e.g., 25" value="25" />
         </div>
-        <div class="input-group">
-            <label for="mileage">Car Mileage (L/100km)</label>
-            <input type="number" id="mileage" placeholder="e.g., 6.5" value="6.5" step="0.1">
+
+        <!-- Inputs for Mayuri -->
+        <div class="card" id="inputsMayuri" style="display: none;">
+            <h4>👩‍🦰 Mayuri's Details</h4>
+            <label>👥 Passengers (One-way)</label>
+            <input type="number" id="passengersMayuri" placeholder="Enter number" />
+            <label>🏁 Trip Distance (One-way km)</label>
+            <input type="number" id="distanceMayuri" placeholder="e.g., 140" value="140" />
+            <label>💵 Charge per Passenger (CAD)</label>
+            <input type="number" id="chargeMayuri" placeholder="e.g., 20" value="20" />
+            <label>🔄 Reverse Ride Cost (CAD)</label>
+            <input type="number" id="reverseMayuri" placeholder="e.g., 20" value="20" />
+        </div>
+
+        <!-- Inputs for Shared Route -->
+        <div class="card" id="sharedRouteInputs" style="display: none;">
+            <h4>🚘 Shared Route Details</h4>
+            <label>👩‍🦰 Mayuri’s Passengers (0-70 km One-way)</label>
+            <input type="number" id="passengersMayuriShared" placeholder="Enter number" />
+            <label>👨‍🦱 Yagnik’s Passengers (0-125 km One-way)</label>
+            <input type="number" id="passengersYagnikShared" placeholder="Enter number" />
+            <label>🏁 Mayuri’s Stop Distance (One-way km)</label>
+            <input type="number" id="distanceMayuriShared" value="70" />
+            <label>➕ Extra Distance for Yagnik (One-way km)</label>
+            <input type="number" id="extraDistanceYagnik" value="55" />
+            <label>💵 Charge per Passenger (Mayuri)</label>
+            <input type="number" id="chargeMayuriShared" value="20" />
+            <label>💵 Charge per Passenger (Yagnik)</label>
+            <input type="number" id="chargeYagnikShared" value="25" />
+        </div>
+
+        <!-- Common Inputs -->
+        <div class="card" id="commonInputs" style="display: none;">
+            <h4>⛽ Car Details</h4>
+            <label>⛽ Fuel Price per Liter (CAD)</label>
+            <input type="number" id="fuelPrice" value="1.35" />
+            <label>🚘 Mileage (L/100km)</label>
+            <input type="number" id="mileage" value="6.5" />
+            <label>📉 Depreciation Rate (CAD/km)</label>
+            <input type="number" id="depreciationRate" value="0.04" />
         </div>
 
         <!-- Calculate Button -->
-        <button onclick="calculateOptimalDriver()">🚦 Calculate Optimal Driver</button>
+        <button onclick="calculateOptimalDriver()">🔥 Calculate Profit</button>
 
         <!-- Result Display -->
-        <div id="result" class="result-box">
-            <h3>📊 Result</h3>
-            <p id="driverRecommendation">No calculation yet.</p>
-            <p id="combinedNet"></p>
-            <p id="netProfitA"></p>
-            <p id="netProfitB"></p>
-            <p id="reverseRide"></p>
-            <div id="breakdown" class="calculation-breakdown"></div>
-        </div>
+        <div class="card result" id="result"></div>
     </div>
-
-    <!-- Script -->
     <script src="script.js"></script>
 </body>
 </html>
