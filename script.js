@@ -9,39 +9,39 @@ function updateShift() {
     if (shift === "Yagnik") {
         driverOptions.innerHTML = `
             <label class="radio-container">
-                <input type="radio" name="driver" value="Yagnik" onchange="updateForm()">
+                <input type="radio" name="driver" value="Yagnik" onclick="updateForm()">
                 <span class="checkmark"></span> 👨‍🦱 Yagnik is Driving
             </label>
             <label class="radio-container">
-                <input type="radio" name="driver" value="None" onchange="updateForm()">
+                <input type="radio" name="driver" value="None" onclick="updateForm()">
                 <span class="checkmark"></span> 🚗 Yagnik is going with someone else
             </label>`;
     } else if (shift === "Mayuri") {
         driverOptions.innerHTML = `
             <label class="radio-container">
-                <input type="radio" name="driver" value="Mayuri" onchange="updateForm()">
+                <input type="radio" name="driver" value="Mayuri" onclick="updateForm()">
                 <span class="checkmark"></span> 👩‍🦰 Mayuri is Driving
             </label>
             <label class="radio-container">
-                <input type="radio" name="driver" value="None" onchange="updateForm()">
+                <input type="radio" name="driver" value="None" onclick="updateForm()">
                 <span class="checkmark"></span> 🚗 Mayuri is going with someone else
             </label>`;
     } else if (shift === "Both") {
         driverOptions.innerHTML = `
             <label class="radio-container">
-                <input type="radio" name="driver" value="Yagnik" onchange="updateForm()">
+                <input type="radio" name="driver" value="Yagnik" onclick="updateForm()">
                 <span class="checkmark"></span> 👨‍🦱 Yagnik
             </label>
             <label class="radio-container">
-                <input type="radio" name="driver" value="Mayuri" onchange="updateForm()">
+                <input type="radio" name="driver" value="Mayuri" onclick="updateForm()">
                 <span class="checkmark"></span> 👩‍🦰 Mayuri
             </label>
             <label class="radio-container">
-                <input type="radio" name="driver" value="SharedRoute" onchange="updateForm()">
+                <input type="radio" name="driver" value="SharedRoute" onclick="updateForm()">
                 <span class="checkmark"></span> 🚘 Both (Shared Route)
             </label>
             <label class="radio-container">
-                <input type="radio" name="driver" value="None" onchange="updateForm()">
+                <input type="radio" name="driver" value="None" onclick="updateForm()">
                 <span class="checkmark"></span> 🚗 None
             </label>`;
     }
